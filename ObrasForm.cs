@@ -39,7 +39,7 @@ namespace ConstruirApp
             {
                 var id = item.SubItems[1].Text;
                 result = Int32.Parse(id);
-                _selectedObra = ObraService.findObraById(result);
+                _selectedObra = ObraService.FindObraById(result);
             }
 
             if (result != -1)
