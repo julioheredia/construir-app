@@ -11,9 +11,28 @@ namespace ConstruirApp.Service
     class ObraService
     {
 
-        List<Obra> _cacheObras;
+        static List<Obra> _cacheObras;
 
-        public void addObra(Obra _obra)
+        public static List<Obra> Obras()
+        {
+            if (_cacheObras == null)
+            {
+                _cacheObras = JsonUtil.ReadToObra();
+            }
+            return _cacheObras;
+        }
+
+        public static Obra findObraById(int id)
+        {
+            var index = _cacheObras.FindIndex(c => c.ObraId == id);
+            if (index != -1)
+            {
+                return _cacheObras[index];
+            }
+            return null;
+        }
+
+        public static void addObra(Obra _obra)
         {
             int id = GetMaxIdObra();
             _obra.ObraId = id++;
@@ -21,7 +40,7 @@ namespace ConstruirApp.Service
             JsonUtil.WriteFromObra(_cacheObras);
         }
 
-        public void editObra(Obra _obra)
+        public static void editObra(Obra _obra)
         {
             var index = _cacheObras.FindIndex(c => c.ObraId == _obra.ObraId);
             if (index != -1)
@@ -32,7 +51,7 @@ namespace ConstruirApp.Service
 
         }
 
-        private int GetMaxIdObra()
+        private static int GetMaxIdObra()
         {
             int id = 1;
             foreach (Obra _obra in _cacheObras)
@@ -43,7 +62,7 @@ namespace ConstruirApp.Service
             return id;
         }
 
-        private void LoadObrasInCache()
+        private static void LoadObrasInCache()
         {
             if (_cacheObras == null)
             {

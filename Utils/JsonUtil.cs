@@ -19,6 +19,8 @@ namespace ConstruirApp.Utils
         {
             var json = JsonConvert.SerializeObject(obras, Formatting.Indented);
             File.WriteAllText((Path.Combine(jsonPath, jsonFile)), json);
+
+            Console.WriteLine(Path.Combine(jsonPath, jsonFile));
             return json;
         }
 
