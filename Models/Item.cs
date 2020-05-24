@@ -10,7 +10,6 @@ namespace ConstruirApp.Models
         public string LocalCompra { get; set; }
         public int Quantidade { get; set; }
         public decimal Valor { get; set; }
-
         [ForeignKey("EtapaObraId")]
         public EtapaObra EtapaObra { get; set; }
     }

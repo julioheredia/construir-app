@@ -22,7 +22,7 @@ namespace ConstruirApp.Service
             return _cacheObras;
         }
 
-        public static Obra findObraById(int id)
+        public static Obra FindObraById(int id)
         {
             var index = _cacheObras.FindIndex(c => c.ObraId == id);
             if (index != -1)
@@ -32,15 +32,15 @@ namespace ConstruirApp.Service
             return null;
         }
 
-        public static void addObra(Obra _obra)
+        public static void AddObra(Obra _obra)
         {
             int id = GetMaxIdObra();
-            _obra.ObraId = id++;
+            _obra.ObraId = ++id;
             _cacheObras.Add(_obra);
             JsonUtil.WriteFromObra(_cacheObras);
         }
 
-        public static void editObra(Obra _obra)
+        public static void EditObra(Obra _obra)
         {
             var index = _cacheObras.FindIndex(c => c.ObraId == _obra.ObraId);
             if (index != -1)
@@ -48,7 +48,6 @@ namespace ConstruirApp.Service
                 _cacheObras[index] = _obra;
                 JsonUtil.WriteFromObra(_cacheObras);
             }
-
         }
 
         private static int GetMaxIdObra()
@@ -62,7 +61,7 @@ namespace ConstruirApp.Service
             return id;
         }
 
-        private static void LoadObrasInCache()
+        public static void LoadObrasInCache()
         {
             if (_cacheObras == null)
             {

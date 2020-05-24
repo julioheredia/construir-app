@@ -11,7 +11,7 @@ namespace ConstruirApp.Utils
 {
     public class JsonUtil
     {
-        
+
         private static string jsonPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         private static string jsonFile = "obras_app.json";
        
@@ -24,7 +24,6 @@ namespace ConstruirApp.Utils
             return json;
         }
 
-
         public static List<Obra> ReadToObra()
         {
             using (StreamReader r = new StreamReader(Path.Combine(jsonPath, jsonFile)))
@@ -32,7 +31,6 @@ namespace ConstruirApp.Utils
                 string json = r.ReadToEnd();
                 return JsonConvert.DeserializeObject<List<Obra>>(json);
             }
-            
         }
 
     }

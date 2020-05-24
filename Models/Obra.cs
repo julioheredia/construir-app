@@ -11,6 +11,9 @@ namespace ConstruirApp.Models
     {
         public int ObraId { get; set; }
         public string Nome { get; set; }
-        public List<EtapaObra> EtapaObras { get; set; }
+        public List<EtapaObra> EtapaObras {
+            get => new List<EtapaObra>();
+            set => EtapaObras = EtapaObras; 
+        }
     }
 }

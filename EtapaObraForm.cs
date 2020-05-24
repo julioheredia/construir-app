@@ -13,26 +13,19 @@ namespace ConstruirApp
         public EtapaObraForm(Obra _selectedObra)
         {
             this.obra = _selectedObra;
-
+            DataGridView dataGridView = GetDataGridView();
             
-
             foreach (EtapaObra _etapaObra in obra.EtapaObras)
             {
-
-                DataGridView dataGridView = GetDataGridView();
-
-                this.Controls.Add(dataGridView);
-
                 foreach (Item _item in _etapaObra.Itens)
                 {
                     AddDataGridViewItens(_item, dataGridView);
                 }
             }
 
-
-            // this.AutoSize = true;
-            
+            this.Controls.Add(dataGridView);
             this.ResumeLayout(false);
+
             InitializeComponent();
         }
 
@@ -49,15 +42,15 @@ namespace ConstruirApp
             DataGridViewTextBoxColumn Modelo = new DataGridViewTextBoxColumn();
             DataGridViewTextBoxColumn LocalCompra = new DataGridViewTextBoxColumn();
             DataGridViewTextBoxColumn Valor = new DataGridViewTextBoxColumn();
-            ((ISupportInitialize)(dataGridView)).BeginInit();
             
+            ((ISupportInitialize)(dataGridView)).BeginInit();
 
             dataGridView.AllowUserToOrderColumns = true;
             dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView.Columns.AddRange(new DataGridViewColumn[] { Desc, Quant, Modelo, LocalCompra, Valor });
-            dataGridView.Location = new Point(12, 12);
+            dataGridView.Location = new Point(30, 30);
             dataGridView.Name = "dataGridView1";
-            dataGridView.Size = new Size(784, 426);
+            dataGridView.Size = new Size(700, 290);
             dataGridView.TabIndex = 0;
             dataGridView.CellContentClick += new DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 
@@ -66,8 +59,10 @@ namespace ConstruirApp
             Desc.Name = "Desc";
             Desc.Width = 250;
 
+            Quant.FillWeight = 70F;
             Quant.HeaderText = "Quantidade";
             Quant.Name = "Quant";
+            Quant.Width = 90;
 
             Modelo.FillWeight = 120F;
             Modelo.HeaderText = "Modelo";
@@ -79,9 +74,13 @@ namespace ConstruirApp
             LocalCompra.Name = "LocalCompra";
             LocalCompra.Width = 140;
 
+            Modelo.FillWeight = 70F;
             Valor.HeaderText = "Valor";
             Valor.Name = "Valor";
+            Modelo.Width = 80;
+
             ((ISupportInitialize)(dataGridView)).EndInit();
+            
             return dataGridView;
         }
 

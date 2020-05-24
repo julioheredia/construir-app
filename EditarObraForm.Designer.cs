@@ -1,8 +1,6 @@
-﻿using System.Windows.Forms;
-
-namespace ConstruirApp
+﻿namespace ConstruirApp
 {
-    partial class EtapaObraForm
+    partial class EditarObraForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,25 +28,12 @@ namespace ConstruirApp
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView = new DataGridView();
-
-            this.SuspendLayout();
-            // 
-            // EtapaObraForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "EtapaObraForm";
-            this.Text = "EtapaObraForm";
-            this.Load += new System.EventHandler(this.EtapaObraForm_Load);
-            this.ResumeLayout(false);
-
+            this.Text = "EditarObraForm";
         }
 
         #endregion
-
-        private DataGridView dataGridView;
-
     }
 }

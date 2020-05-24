@@ -34,18 +34,28 @@ namespace ConstruirApp
         {
             ListView.CheckedListViewItemCollection checkedItems = listView1.CheckedItems;
 
+            int result = -1;
             foreach (ListViewItem item in checkedItems)
             {
                 var id = item.SubItems[1].Text;
-                int result = Int32.Parse(id);
+                result = Int32.Parse(id);
                 _selectedObra = ObraService.findObraById(result);
             }
 
-            MessageBox.Show(_selectedObra.Nome);
+            if (result != -1)
+            {
+                this.Hide();
+                EtapaObraForm EtapaObraForm = new EtapaObraForm(_selectedObra);
+                EtapaObraForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Não foi selecionada nenhuma Obra");
+            }
+        }
 
-            this.Hide();
-            EtapaObraForm EtapaObraForm = new EtapaObraForm(_selectedObra);
-            EtapaObraForm.Show();
+        private void button2_Click(object sender, EventArgs e)
+        {
 
         }
     }

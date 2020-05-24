@@ -121,11 +121,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditarObraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarObraForm.Designer.cs">
+      <DependentUpon>EditarObraForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EtapaObraForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EtapaObraForm.Designer.cs">
       <DependentUpon>EtapaObraForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NovaObraForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NovaObraForm.Designer.cs">
+      <DependentUpon>NovaObraForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ObrasForm.cs">
       <SubType>Form</SubType>
@@ -151,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NovaObraForm.resx">
+      <DependentUpon>NovaObraForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ObrasForm.resx">
       <DependentUpon>ObrasForm.cs</DependentUpon>
