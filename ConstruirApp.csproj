@@ -158,6 +158,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\Obra.cs" />
+    <EmbeddedResource Include="EditarObraForm.resx">
+      <DependentUpon>EditarObraForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EtapaObraForm.resx">
       <DependentUpon>EtapaObraForm.cs</DependentUpon>
     </EmbeddedResource>

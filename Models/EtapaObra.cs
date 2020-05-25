@@ -13,10 +13,7 @@ namespace ConstruirApp.Models
         public string Etapa { get; set; }
         [ForeignKey("ObraId")]
         public Obra Obra { get; set; }
-        public List<Item> Itens
-        {
-            get => new List<Item>();
-            set => Itens = Itens;
-        }
+        public List<Item> Itens { get { return _itens; } set { _itens = value; } }
+        private List<Item> _itens = new List<Item>();
     }
 }

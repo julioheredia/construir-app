@@ -23,30 +23,15 @@ namespace ConstruirApp
                 ListViewItem listViewItem = new ListViewItem(itens);
                 this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] { listViewItem });
             }
-
-        }
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ListView.CheckedListViewItemCollection checkedItems = listView1.CheckedItems;
-
-            int result = -1;
-            foreach (ListViewItem item in checkedItems)
-            {
-                var id = item.SubItems[1].Text;
-                result = Int32.Parse(id);
-                _selectedObra = ObraService.FindObraById(result);
-            }
-
+            int result = getIndexSelectObra();
             if (result != -1)
             {
                 this.Hide();
-                EtapaObraForm EtapaObraForm = new EtapaObraForm(_selectedObra);
-                EtapaObraForm.Show();
+                new EtapaObraForm(_selectedObra).Show();
             }
             else
             {
@@ -56,7 +41,30 @@ namespace ConstruirApp
 
         private void button2_Click(object sender, EventArgs e)
         {
+            int result = getIndexSelectObra();
+            if (result != -1)
+            {
+                this.Hide();
+                new EditarObraForm(_selectedObra).Show();
+            }
+            else
+            {
+                MessageBox.Show("Não foi selecionada nenhuma Obra");
+            }
+        }
 
+        private int getIndexSelectObra()
+        {
+            ListView.CheckedListViewItemCollection checkedItems = listView1.CheckedItems;
+
+            int index = -1;
+            foreach (ListViewItem item in checkedItems)
+            {
+                var id = item.SubItems[1].Text;
+                index = Int32.Parse(id);
+                _selectedObra = ObraService.FindObraById(index);
+            }
+            return index;
         }
     }
 }
